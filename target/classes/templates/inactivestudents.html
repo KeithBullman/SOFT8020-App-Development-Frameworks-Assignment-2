@@ -1,0 +1,29 @@
+<!--Name: Keith Bullman-->
+<!--ID: R00178736-->
+<!--Class: SDH4-A-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Homepage</title>
+        <link rel="stylesheet" th:href="@{/styles.css}"/>
+    </head>
+    <body>
+        <div class="centre-screen">
+            <header th:replace="fragments.html :: heading"></header>
+            <h1 th:text="#{inactivestudents.notice}"></h1>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+                <tr th:each="student, iterationCount: ${inactivestudents}" th:class="${iterationCount.odd}? 'odd'">
+                    <td th:text="${student.studentId}"></td>
+                    <td><a th:text="${student.studentFirst} + ' ' + ${student.studentLast}" th:href="'/student/' + ${student.studentId}"></a></td>
+                </tr>
+            </table>
+            <footer th:replace="fragments.html :: languages"></footer>
+        </div>
+    </body>
+</html>

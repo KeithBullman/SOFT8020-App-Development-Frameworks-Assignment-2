@@ -1,0 +1,41 @@
+/*Name: Keith Bullman*/
+/*ID: R00178736*/
+/*Class: SDH4-A*/
+
+*{
+    color: navy; font-family: "Agency FB";
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.button {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    color: green;
+}
+
+.button:hover {background: #eee;}
+
+h1{
+    text-align: center;
+}
+
+.centre-screen, table{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.odd{
+    background-color: #bfeeff;
+}
+
+th, td {
+  text-align: center;
+  border: 1px solid black;
+}

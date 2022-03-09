@@ -1,0 +1,27 @@
+<!--Name: Keith Bullman-->
+<!--ID: R00178736-->
+<!--Class: SDH4-A-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:sec="http://thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}"/>
+</head>
+<body>
+    <header th:fragment="heading">
+        <button class="button"><a th:text="#{index.home}" th:href="@{/}"></a></button>
+        <button class="button"><a sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{index.add}" th:href="@{/newstudent}"></a></button>
+        <button class="button"><a th:text="#{index.search}" th:href="@{/students}"></a></button>
+        <button class="button"><a sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{index.note}" th:href="@{/newnote}"></a></button>
+        <button class="button"><a th:text="#{index.inactive}" th:href="@{/inactivestudents}"></a></button>
+        <button class="button"><a sec:authorize="!isAuthenticated()" th:text="#{index.login}" th:href="@{/login}"></a></button>
+        <button class="button"><a sec:authorize="isAuthenticated()" th:text="#{index.logout}" th:href="@{/logout}"></a></button>
+    </header>
+
+    <footer th:fragment="languages" th:with="currentUrl=(${@thymeleafBeans.removeLangFromUrl()})">
+        <a th:href="@{${currentUrl}(lang=ie)}">IE</a>
+        <a th:href="@{${currentUrl}(lang=fr)}">FR</a>
+        <br>
+        <span>Keith Bullman - R00178736</span>
+    </footer>
+</body>

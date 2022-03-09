@@ -1,0 +1,33 @@
+<!--Name: Keith Bullman-->
+<!--ID: R00178736-->
+<!--Class: SDH4-A-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Homepage</title>
+        <link rel="stylesheet" th:href="@{/styles.css}"/>
+    </head>
+    <body>
+        <header th:replace="fragments.html :: heading"></header>
+        <h1>Note <span th:text="${note.noteId}"></span></h1>
+        <div centre-screen>
+            <table >
+                <tr>
+                    <th>ID</th>
+                    <th>Note</th>
+                    <th>Date</th>
+                    <th>Student</th>
+                </tr>
+                <tr>
+                    <td th:text="${note.noteId}">ID</td>
+                    <td th:text="${note.text}">Note</td>
+                    <td th:text="${note.dateOfCreation}">Date</td>
+                    <td th:text="${note.studentId.studentFirst} + ' ' + ${note.studentId.studentLast}">Student</td>
+                </tr>
+            </table>
+            <footer th:replace="fragments.html :: languages"></footer>
+        </div>
+    </body>
+</html>

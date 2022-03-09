@@ -1,0 +1,36 @@
+<!--Name: Keith Bullman-->
+<!--ID: R00178736-->
+<!--Class: SDH4-A-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Homepage</title>
+        <link rel="stylesheet" th:href="@{/styles.css}"/>
+    </head>
+    <body>
+        <div class="centre-screen">
+            <header th:replace="fragments.html :: heading"></header>
+
+            <form method="post" th:action="@{/newnote}" th:object="${newNoteForm}">
+                <label for="studentNote" th:text="#{newnote.text}"></label>
+                <input type="text" th:field="*{newNoteText}" id="studentNote"/>
+                <span th:if="${#fields.hasErrors('newNoteText')}" th:errors="*{newNoteText}"></span>
+
+                <br>
+
+                <label for="student" th:text="#{newnote.student}"></label>
+                    <select th:field="*{noteStudentId}" id="student">
+                        <option th:each="student: ${students}" th:text="${student.studentFirst} + ' ' + ${student.studentLast}" th:value="${student.studentId}"/>
+                    </select>
+
+                <br>
+
+                <input type="submit" th:value="#{submit}"/>
+            </form>
+
+            <footer th:replace="fragments.html :: languages"></footer>
+        </div>
+    </body>
+</html>

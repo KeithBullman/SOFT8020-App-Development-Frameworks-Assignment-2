@@ -1,0 +1,35 @@
+<!--Name: Keith Bullman-->
+<!--ID: R00178736-->
+<!--Class: SDH4-A-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Homepage</title>
+        <link rel="stylesheet" th:href="@{/styles.css}"/>
+    </head>
+    <body>
+        <div class="centre-screen">
+            <header th:replace="fragments.html :: heading"></header>
+
+            <form method="post" th:action="@{/newstudent}" th:object="${newStudentForm}">
+                <label for="studentEmail" th:text="#{newstudent.studentEmail}"></label>
+                <input type="text" th:field="*{newStudentEmail}" id="studentEmail"/>
+                <span th:if="${#fields.hasErrors('newStudentEmail')}" th:errors="*{newStudentEmail}"></span>
+                <br>
+                <label for="studentFirst" th:text="#{newstudent.studentFirst}"></label>
+                <input type="text" th:field="*{newStudentFirst}" id="studentFirst"/>
+                <span th:if="${#fields.hasErrors('newStudentFirst')}" th:errors="*{newStudentFirst}"></span>
+                <br>
+                <label for="studentLast" th:text="#{newstudent.studentLast}"></label>
+                <input type="text" th:field="*{newStudentLast}" id="studentLast"/>
+                <span th:if="${#fields.hasErrors('newStudentLast')}" th:errors="*{newStudentLast}"></span>
+
+                <br><input type="submit" th:value="#{submit}"/>
+            </form>
+
+            <footer th:replace="fragments.html :: languages"></footer>
+        </div>
+    </body>
+</html>
